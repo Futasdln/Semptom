@@ -69,6 +69,7 @@ builder.Services.ConfigureApplicationCookie(opt =>
     opt.SlidingExpiration = true;
 });
 
+builder.Services.AddScoped<SemptomAnalizApp.Core.Interfaces.IAnalizDbContext>(provider => provider.GetRequiredService<AppDbContext>());
 builder.Services.AddScoped<IAnalizService, AnalizMotoru>();
 builder.Services.AddControllersWithViews();
 
